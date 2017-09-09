@@ -6,7 +6,7 @@ INNER JOIN (SELECT d.id_pais, SUM(COALESCE(i.cantidad_voluntario,0)) AS "cantida
 						FROM unc_esq_voluntario.institucion i
 						INNER JOIN unc_esq_voluntario.voluntario v
 								ON i.id_institucion = v.id_institucion
-						WHERE v.fecha_nacimiento < now() - interval '21 year'
+						WHERE v.fecha_nacimiento < now() - interval '18 year'
 						GROUP BY i.id_institucion, i.id_direccion
 						HAVING COUNT(v.nro_voluntario) > 4
 						   AND MAX(v.horas_aportadas) - MIN(v.horas_aportadas) < 5000) i
